@@ -7,6 +7,16 @@ Rails.application.routes.draw do
    resources :users
    root :to => "users#index"
 
+   get '/signup'  => 'users#new' 
+   resources :users
+  
+   get 'login'  => 'sessions#new' 
+   resources :sessions
+
+ post 'login' => 'sessions#create'
+ delete 'logout' => 'sessions#destroy'
+ 
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
