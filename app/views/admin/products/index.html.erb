@@ -22,22 +22,29 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
+      
         <% @products.each do |p| %>
-        <td>  <%=  p.label %></td>
+        <tr>
+          <td>  <%=  p.label %></td>
           <td>  <%=  p.price %></td>
           <td>  <%=  p.stock %></td>
-          <td>  <%=  p.category %></td>
-          <td>  
-                <%= link_to 'Show' , '/admin/products/show/'+"#{p.id}" %> |   
-                <%= link_to 'Edit' , '/admin/products/edit/'+"#{p.id}" %>    |
-                <%= link_to 'Destroy', '/admin/products/destroy/'+"#{p.id}" , method: "delete" , data: {confirm: "You sure?"}%>
-          </td>
-
+          <% begin %>
+          <td>  <%=  p.category.label %></td>
+          <% rescue %> 
+              Pas de categorie  associé
+          <% end %>
+           
+            <td>  
+                  <%= link_to 'Show' , '/admin/products/show/'+"#{p.id}" %> |   
+                  <%= link_to 'Edit' , '/admin/products/edit/'+"#{p.id}" %>    |
+            
+                  <%= link_to 'Destroy', '/admin/products/destroy/'+"#{p.id}" , method: "delete" , data: {confirm: "You sure?"}%>
+            </td>
+        </tr>
         <%end %>
     
 
-      </tr>
+      
       </tbody>
     </table>
   </div>

@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
    get '/products'  => 'products#index' 
    resources :products
+   
+   get '/categories'  => 'admin/categories#index' 
+   resources :categories
+
 
    get '/signup'  => 'users#new' 
    resources :users
@@ -25,6 +29,12 @@ Rails.application.routes.draw do
    get 'admin/products/show/:id' => 'admin/products#show'
    get 'admin/products/edit/:id' => 'admin/products#edit'
    delete 'admin/products/destroy/:id' => 'admin/products#destroy'
+
+   get '/admin/categories' => 'admin/categories#index'
+   resources :categories
+   get '/admin/categories/new' => 'admin/categories#new'
+   get 'admin/categories/edit/:id' => 'admin/categories#edit'
+   delete 'admin/categories/destroy/:id' => 'admin/categories#destroy'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

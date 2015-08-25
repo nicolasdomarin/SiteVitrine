@@ -12,11 +12,12 @@ class ProductsController < ApplicationController
 		end
 	end
 
-def update
+ def update
     @product = Product.find(params[:id])
  	@product.update!(products_params)
     redirect_to '/admin/products/show/'+"#{@product.id}"
   end
+  
 	def products_params
 		params.require(:product).permit(:label, :price, :description , :category_id ,:special_price, :stock ,:image)
 	end

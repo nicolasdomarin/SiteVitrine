@@ -23,9 +23,9 @@ before_action :require_admin
  
  def destroy
  	@product = Product.find(params[:id])
- 	if @product.destroy
- 	 redirect_to '/admin/products'
- 	end
+   	if @product.destroy
+   	 redirect_to '/admin/products'
+   	end
   end
 
 
