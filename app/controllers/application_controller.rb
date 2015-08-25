@@ -14,8 +14,18 @@ def require_user
 end
 
 def require_editor 
-  redirect_to '/' unless current_user.editor? 
+  redirect_to '/login' unless current_user.editor? 
 end
+
+def require_admin
+
+	if current_user
+		redirect_to '/' unless current_user.admin?
+	else 
+	  redirect_to '/login'
+	end 
+end
+
 
 
 end

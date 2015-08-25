@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-	before_action :require_editor, :only => [:edit]
+	before_action :require_admin, :only => [:edit, :new , :create , :update]
 
 	def create
 
@@ -12,8 +12,13 @@ class ProductsController < ApplicationController
 		end
 	end
 
+def update
+    @product = Product.find(params[:id])
+ 	@product.update!(products_params)
+    redirect_to '/admin/products/show/'+"#{@product.id}"
+  end
 	def products_params
-		params.require(:product).permit(:label, :price, :special_price, :stock ,:image)
+		params.require(:product).permit(:label, :price, :description , :category_id ,:special_price, :stock ,:image)
 	end
 
 end

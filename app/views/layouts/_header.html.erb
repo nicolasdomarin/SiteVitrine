@@ -9,7 +9,11 @@
           <div class="header_right">
             <div class="rgt-bottom">
               
-<% if current_user %> 
+<% if current_user %>
+
+         <% if current_user.admin? %>
+            <%= link_to 'ADMINISTRATION' , admin_path %>
+          <% end %>
             <div class="log" style="margin-left:-6%;margin-top:1%;">
               <%= link_to "LOG OUT", logout_path, method: "delete" %>    
             </div>

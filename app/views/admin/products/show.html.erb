@@ -1,0 +1,13 @@
+<div class="login">
+  <div class="container">
+    <div class="form_signup">
+      <h1>Show Product</h1>
+
+  <%= image_tag @product.image.url %>
+
+      <%= link_to 'Back', admin_products_path %> |
+    	<%= link_to 'Edit' , '/admin/products/edit/'+"#{@product.id}" %>   |
+      <%= link_to 'Destroy', '/admin/products/destroy/'+"#{@product.id}" , method: "delete" , data: {confirm: "You sure?"}%>
+    </div>
+  </div>
+</div>

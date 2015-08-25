@@ -16,12 +16,15 @@ Rails.application.routes.draw do
    get 'login'  => 'sessions#new' 
    resources :sessions
 
- post 'login' => 'sessions#create'
- delete 'logout' => 'sessions#destroy'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
 
    get '/admin' => 'admin/products#index'
    get '/admin/products' => 'admin/products#index'
    get '/admin/products/new' => 'admin/products#new'
+   get 'admin/products/show/:id' => 'admin/products#show'
+   get 'admin/products/edit/:id' => 'admin/products#edit'
+   delete 'admin/products/destroy/:id' => 'admin/products#destroy'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -18,30 +18,24 @@
         <th>Prix</th>
         <th>Stock</th>
         <th>Categorie</th>
+          <th>Action</th>
       </tr>
       </thead>
       <tbody>
       <tr>
-        <%= @products.each do |x| %>
-          <%=  x.label %>
+        <% @products.each do |p| %>
+        <td>  <%=  p.label %></td>
+          <td>  <%=  p.price %></td>
+          <td>  <%=  p.stock %></td>
+          <td>  <%=  p.category %></td>
+          <td>  
+                <%= link_to 'Show' , '/admin/products/show/'+"#{p.id}" %> |   
+                <%= link_to 'Edit' , '/admin/products/edit/'+"#{p.id}" %>    |
+                <%= link_to 'Destroy', '/admin/products/destroy/'+"#{p.id}" , method: "delete" , data: {confirm: "You sure?"}%>
+          </td>
+
         <%end %>
-      </tr>
-      <tr>
-
-      </tr>
-      <tr>
-
-      </tr>
-      <tr>
-
-      </tr>
-      <tr>
-
-      </tr>
-      <tr>
-
-      </tr>
-      <tr>
+    
 
       </tr>
       </tbody>
