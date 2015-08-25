@@ -10,7 +10,7 @@ Rails.application.routes.draw do
    get '/products'  => 'products#index' 
    resources :products
    
-   get '/categories'  => 'admin/categories#index' 
+   get '/admin/categories'  => 'admin/categories#index' 
    resources :categories
 
 

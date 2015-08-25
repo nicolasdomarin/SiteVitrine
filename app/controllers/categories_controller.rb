@@ -2,6 +2,10 @@ class CategoriesController < ApplicationController
 
 	before_action :require_admin, :only => [:edit, :new ,  :update]
 
+def index 
+@categories = Category.all
+end
+
 def create
 
 		@category = Category.new(products_params)

@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
 
    def index
-   	
+   	@categories = Category.all
    end
    
    def new
   	@user = User.new
+    @categories = Category.all
+
    end 
 
    def create 

@@ -1,11 +1,6 @@
 <div class="product-show">
   <div class="container">
-    <h2><%= @product.name %></h2>
-<% if current_user && current_user.editor? %> 
-  <p class="product-edit">
-    <%= link_to "Edit Product", edit_product_path(@product.id) %> 
-  </p> 
-<% end %>
+    <h2><%= @product.label %></h2>
 
   </div>
 </div>

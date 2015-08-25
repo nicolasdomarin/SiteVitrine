@@ -1,6 +1,10 @@
 class ProductsController < ApplicationController
 	before_action :require_admin, :only => [:edit, :new , :create , :update]
 
+
+def index 
+	@categories = Category.all
+end
 	def create
 
 		@product = Product.new(products_params)
@@ -11,7 +15,9 @@ class ProductsController < ApplicationController
 			redirect_to '/admin/products/new'
 		end
 	end
-
+def show
+    @product = Product.find(params[:id])
+end
  def update
     @product = Product.find(params[:id])
  	@product.update!(products_params)
