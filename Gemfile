@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'paperclip'
 gem 'mysql2', '~> 0.3.16'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'

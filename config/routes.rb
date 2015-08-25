@@ -7,6 +7,9 @@ Rails.application.routes.draw do
    resources :users
    root :to => "users#index"
 
+   get '/products'  => 'products#index' 
+   resources :products
+
    get '/signup'  => 'users#new' 
    resources :users
   
@@ -15,7 +18,10 @@ Rails.application.routes.draw do
 
  post 'login' => 'sessions#create'
  delete 'logout' => 'sessions#destroy'
- 
+
+   get '/admin' => 'admin/products#index'
+   get '/admin/products' => 'admin/products#index'
+   get '/admin/products/new' => 'admin/products#new'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

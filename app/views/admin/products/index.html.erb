@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">
+     Products
+    </h1>
+  </div>
+</div>
+
+
+<%= link_to 'New Product' , admin_products_new_path %>
+
+<div class="col-lg-6">
+     <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Prix</th>
+        <th>Stock</th>
+        <th>Categorie</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <%= @products.each do |x| %>
+          <%=  x.label %>
+        <%end %>
+      </tr>
+      <tr>
+
+      </tr>
+      <tr>
+
+      </tr>
+      <tr>
+
+      </tr>
+      <tr>
+
+      </tr>
+      <tr>
+
+      </tr>
+      <tr>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
