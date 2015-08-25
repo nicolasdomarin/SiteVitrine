@@ -6,6 +6,7 @@ class AddTablesAdminAndUsers < ActiveRecord::Migration
       t.string :email		
       t.string :password_digest		
       t.string :status , :default => "User"
+     
  	end
   end
 end

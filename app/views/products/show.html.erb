@@ -1,0 +1,11 @@
+<div class="product-show">
+  <div class="container">
+    <h2><%= @product.name %></h2>
+<% if current_user && current_user.editor? %> 
+  <p class="recipe-edit"> 
+    <%= link_to "Edit Product", edit_product_path(@product.id) %> 
+  </p> 
+<% end %>
+
+  </div>
+</div>
