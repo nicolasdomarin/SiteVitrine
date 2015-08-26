@@ -1,9 +1,18 @@
 class CategoriesController < ApplicationController
 
-	before_action :require_admin, :only => [:edit, :new ,  :update]
+	before_action :require_admin, :only => [:edit, :new ,:update]
+	before_action :require_user, :only => [:show]
 
 def index 
-@categories = Category.all
+	get_categories
+end
+
+def show 
+ get_categories
+ @category = Category.find(params[:id])
+ @products =  @category.products
+ @sales = Sale.distinct.joins(:products).where(:id => @products)
+
 end
 
 def create
@@ -30,4 +39,7 @@ def create
 
 
 
+    def get_categories
+    	@categories = Category.all
+    end
 end

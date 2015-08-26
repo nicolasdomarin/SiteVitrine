@@ -18,7 +18,8 @@
         <th>Prix</th>
         <th>Stock</th>
         <th>Categorie</th>
-          <th>Action</th>
+        <th>Vente Associé</th>
+        <th>Action</th>
       </tr>
       </thead>
       <tbody>
@@ -31,8 +32,14 @@
           <% begin %>
           <td>  <%=  p.category.label %></td>
           <% rescue %> 
-              Pas de categorie  associé
+              Pas de categorie associé
           <% end %>
+          <% begin %>
+          <td>  <%=  p.sale.label %></td>
+          <% rescue %> 
+              Pas de Vente  associée
+          <% end %>
+
            
             <td>  
                   <%= link_to 'Show' , '/admin/products/show/'+"#{p.id}" %> |   

@@ -1,0 +1,16 @@
+<% @products.each do |p| %>
+            <li>
+              <a href="/products/show/<%= p.id %>">   <%= image_tag p.image , :class=>"img-responsive" %></a>
+              <div class="special-info grid_1 simpleCart_shelfItem">
+                <h5><%= p.description %></h5>
+                <div class="item_add"><span class="item_price"><h6>
+                  <% if p.special_price %> 
+                   <%= p.special_price %> 
+                  <% else %> 
+                   <%= p.price %>
+                  <% end %>
+                </h6></span></div>
+                <div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>
+              </div>
+            </li>
+  		<% end %>

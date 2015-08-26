@@ -36,6 +36,14 @@ Rails.application.routes.draw do
    get 'admin/categories/edit/:id' => 'admin/categories#edit'
    delete 'admin/categories/destroy/:id' => 'admin/categories#destroy'
 
+
+   get '/admin/sales' => 'admin/sales#index'
+   resources :sales
+   get '/admin/sales/new' => 'admin/sales#new'
+   get 'admin/sales/edit/:id' => 'admin/sales#edit'
+   delete 'admin/sales/destroy/:id' => 'admin/sales#destroy'
+   get 'admin/sales/show/:id' => 'admin/sales#show'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

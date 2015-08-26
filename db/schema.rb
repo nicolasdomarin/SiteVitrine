@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20150825102951) do
     t.string   "password_digest",                                 null: false
     t.string   "role"
     t.string   "username",                                        null: false
-    t.datetime "created_at",      default: '2015-08-25 16:03:27'
+    t.datetime "created_at",      default: '2015-08-25 09:53:14'
     t.integer  "newsletter",      default: 1
     t.string   "salt"
   end

@@ -1,0 +1,13 @@
+<div class="login">
+  <div class="container">
+    <div class="form_signup">
+      <h1>Show Sale</h1>
+
+
+
+      <%= link_to 'Back', admin_products_path %> |
+    	<%= link_to 'Edit' , '/admin/sales/edit/'+"#{@sale.id}" %>   |
+      <%= link_to 'Destroy', '/admin/sales/destroy/'+"#{@sale.id}" , method: "delete" , data: {confirm: "You sure?"}%>
+    </div>
+  </div>
+</div>

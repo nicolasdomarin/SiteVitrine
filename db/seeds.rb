@@ -13,3 +13,5 @@ MaisonDéco = Category.create(label: 'Maison Déco')
 TVSonHifi = Category.create(label: 'TV Son Hifi')
 JeuxVidéoGaming = Category.create(label: 'Jeux vidéo Gaming')
 SportLoisirs = Category.create(label: 'Sport Loisirs')
+
+
