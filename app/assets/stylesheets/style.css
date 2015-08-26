@@ -17,12 +17,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   width: 300px;
 }
 
-.form_signup input[type=text],
+.form_signup 
+input[type=text],
 input[type=email],
 input[type=password] {
   color: #666666;
   width: 100%;
-  border: 1px solid #E6E6E6;
   border-radius: 0px; 
   height: 60px;
   margin: 6px auto;

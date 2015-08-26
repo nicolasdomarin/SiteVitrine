@@ -1,14 +1,12 @@
-
-
  <li>
-   <a href="/products/show/<%= product.id %>"> <%= image_tag product.image , :class=>"img-responsive" %></a>
-    <div class="special-info grid_1 simpleCart_shelfItem">
+   <a href="/products/show/<%= product.id %>"> <%= image_tag product.image , :class=>"img-responsive img-set" %></a>
+    <div class="special-info">
                      <h5><%= product.label%></h5>
         <div class="item_add">
                     <%= form_for order_item, remote: true do |f| %>
                <div class="item_add">
                  <span class="item_price">
-                     <h6><%=  product.price %></h6>
+                     <h6><%=  number_to_currency product.price %></h6>
                  </span>
                </div>
 
@@ -24,4 +22,4 @@
                 </div>
               <% end %>
     </div>
-   
+   </li>

@@ -1,7 +1,7 @@
 <div class="login">
   <div class="container">
     <div class="form_signup">
-
+<% if current_user.nil? %>
     <h1>Sign up</h1>
 <%= form_for(@user) do |f| %>
     <%= f.label :first_name %>
@@ -14,11 +14,11 @@
     <%= f.text_field :email %>
      <%= f.label :password %>
     <%= f.password_field :password %>
-       <%= f.label :password %>
-    <%= f.password_field :password %>
-  <%= f.submit "Create an account", class: "btn btn-success" %>
+  <%= f.submit "Creer un compte", class: "btn btn-success" %>
  <% end %>
-
+<% else %>
+  Vous êtes déja connecté 
+<% end %>
 
     </div>
   </div>

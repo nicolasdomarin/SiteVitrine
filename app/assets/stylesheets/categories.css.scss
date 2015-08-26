@@ -1,3 +1,17 @@
 // Place all the styles related to the Categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.show_vente {
+text-align: center;
+
+}
+.show_vente a {
+    background: #09D1B6 none repeat scroll 0% 0%;
+    color: #FFF;
+    padding: 10px 20px;
+    font-size: 0.85em;
+    border: medium none;
+    text-align: center;
+}

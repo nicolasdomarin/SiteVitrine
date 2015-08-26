@@ -1,15 +1,18 @@
 
  <ul class="megamenu skyblue">
-          <li class="active grid"><%= link_to 'Home' , '/' , :class=>'color1' %></li>
-          
+	  <li class="active grid">
+	  	<%= link_to 'Home' , '/' , :class=>'color1' %>
+	  </li>
+	          
 
- <% @categories.each do |p| %>
-   
- <li class="grid"><a class="color2" href="/categories/<%= p.id %>"><%= p.label %></a></li>
+	 <% @categories.each do |p| %>
+	   
+	 <li class="grid">
+	 	<a class="color2" href="/categories/<%= p.id %>"><%= p.label %></a>
+	 </li>
 
+	  <% end %>
           
-  <% end %>
-          
-        </ul>
+ </ul>
 
  
