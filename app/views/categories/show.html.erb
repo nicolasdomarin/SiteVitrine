@@ -1,4 +1,16 @@
+<style>
+.show_vente {
+text-align: center;
 
+}
+.show_vente a {
+    background: #09D1B6 none repeat scroll 0% 0%;
+    color: #FFF;
+    padding: 10px 20px;
+    font-size: 0.85em;
+    border: medium none;
+    text-align: center;
+}</style>
 <div class="special">
   <div class="container">
     <h3>Les Ventes De La Categorie <%= @category.label %></h3>
@@ -9,10 +21,11 @@
             <li>
               <a href="/sales/show/<%= p.id %>">   <%= image_tag '1.jpg', :class=>"img-responsive" %></a>
               <div class="special-info grid_1 simpleCart_shelfItem">
-                <h5><%= p.description %></h5>
+                <h5><%= p.label %></h5>
+
                 <div class="item_add"><span class="item_price">
                   <h6></h6></span></div>
-                <div class="item_add"><span class="item_price"><a href="#">Voir Vente</a></span></div>
+                <div class="show_vente"><span class="item_price"><a href="/sales/show/<%=p.id%>">Voir Vente</a></span></div>
               </div>
             </li>
   		<% end %>

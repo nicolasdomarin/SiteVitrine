@@ -18,7 +18,9 @@ def create
 end
 
 def show
-    @sale = Sale.find(params[:id])
+	@sale = Sale.find(params[:id])
+    @products = @sale.products
+    get_categories
 end
 
 def update

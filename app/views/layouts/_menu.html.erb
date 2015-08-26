@@ -1,44 +1,14 @@
- 
-    <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+
  <ul class="megamenu skyblue">
           <li class="active grid"><%= link_to 'Home' , '/' , :class=>'color1' %></li>
           
 
  <% @categories.each do |p| %>
    
- <li class="grid"><a class="color2" href="/categories/<%= p.id %>"><%= p.label %></a>
+ <li class="grid"><a class="color2" href="/categories/<%= p.id %>"><%= p.label %></a></li>
 
- <div class="megapanel">
-              <div class="row">
-                <div class="col1">
-                  <div class="h_nav">
-                    <h4>Products </h4>
-                    <ul>
-                   <% if p.products.blank? %>
-                   No Product
-                   <% else %>
-                      <% p.products.each do |pp| %>
-                        <li><a href='#'><%= pp.label %></a></li>
-                      <% end %>
-                    <% end %>
-                    </ul>
-                  </div>
-                </div>
-              <div class="row">
-                <div class="col2"></div>
-                <div class="col1"></div>
-                <div class="col1"></div>
-                <div class="col1"></div>
-                <div class="col1"></div>
-              </div>
-            </div>
-          </li>
           
   <% end %>
-         
-
-
-     
           
         </ul>
       </div>

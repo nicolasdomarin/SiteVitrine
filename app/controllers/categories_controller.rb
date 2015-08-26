@@ -11,35 +11,30 @@ def show
  get_categories
  @category = Category.find(params[:id])
  @products =  @category.products
- @sales = Sale.distinct.joins(:products).where(:id => @products)
+ @sales = Sale.distinct.joins(:products).where(:id => @products).where("? BETWEEN start_datetime AND end_datetime", Time.now)
 
 end
 
 def create
+ 
+@category = Category.new(products_params)
 
-		@category = Category.new(products_params)
-
-		if @category.save
-			redirect_to '/admin/categories'
-		else
-			redirect_to '/admin/categories/new'
-		end
+	if @category.save
+		redirect_to '/admin/categories'
+	else
+		redirect_to '/admin/categories/new'
 	end
+end
 
- def update
-    @category = Category.find(params[:id])
- 	@category.update!(products_params)
-    redirect_to '/admin/categories'
- end
+def update
+	 @category = Category.find(params[:id])
+	 @category.update!(products_params)
+	   redirect_to '/admin/categories'
+end
   
-	def products_params
-		params.require(:category).permit(:label, :price, :description , :category_id ,:special_price, :stock ,:image)
-	end
+def products_params
+	params.require(:category).permit(:label, :price, :description , :category_id ,:special_price, :stock ,:image)
+end
 
-
-
-
-    def get_categories
-    	@categories = Category.all
-    end
+  
 end

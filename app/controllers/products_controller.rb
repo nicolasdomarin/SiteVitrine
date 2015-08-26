@@ -6,13 +6,15 @@ def index
 	@categories = Category.all
 end
 	def create
-
+     
 		@product = Product.new(products_params)
 
 		if @product.save
+
 			redirect_to '/admin'
 		else
-			redirect_to '/admin/products/new'
+			
+ 			redirect_to '/admin/products/new'
 		end
 	end
 def show
