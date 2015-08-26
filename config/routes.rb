@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'order_items/create'
+
+  get 'order_items/update'
+
+  get 'order_items/destroy'
+
+  get 'carts/show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   # You can have the root of your site routed with "root"
@@ -45,6 +53,8 @@ Rails.application.routes.draw do
    get 'admin/sales/show/:id' => 'admin/sales#show'
    get '/sales/show/:id' => 'sales#show'
 
+    resource :cart, only: [:show]
+    resources :order_items, only: [:create, :update, :destroy]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,6 +1,6 @@
 class SalesController < ApplicationController
 	before_action :require_admin, :only => [:edit, :new , :create , :update]
-
+	before_action :require_user
 
 def index 
 	@categories = Category.all
@@ -18,6 +18,7 @@ def create
 end
 
 def show
+	@order_item = current_order.order_items.new
 	@sale = Sale.find(params[:id])
     @products = @sale.products
     get_categories

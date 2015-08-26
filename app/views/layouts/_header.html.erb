@@ -5,10 +5,11 @@
           <div class="logo">
             <a href="/">   <%= image_tag 'logo.png' , :class=>"img-responsive" %> </a>
           </div>
-          <!-- start header_right -->
           <div class="header_right">
             <div class="rgt-bottom">
-              
+ <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
+
+
 <% if current_user %>
 
          <% if current_user.admin? %>
@@ -32,21 +33,6 @@
             </div>
  
 <% end %>
-<% if current_user %>
-              <div class="cart box_1">
-                <a href="checkout.html">
-                  <h3> <span class="simpleCart_total">$0.00</span> (<span id="simpleCart_quantity" class="simpleCart_quantity">0</span> items)   <%= image_tag 'bag.png'%><h3>
-                </a>
-                <p><a href="javascript:;" class="simpleCart_empty">(empty card)</a></p>
-                <div class="clearfix"> </div>
-              </div>
-
-
-
-              <div class="create_btn">
-                <a href="checkout.html">CHECKOUT</a>
-              </div>
-          <% end %>
               <div class="clearfix"> </div>
             </div>
             <div class="search">

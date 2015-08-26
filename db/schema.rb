@@ -11,15 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825102951) do
+ActiveRecord::Schema.define(version: 20150826174239) do
 
   create_table "categories", force: true do |t|
     t.string "label"
   end
 
+  create_table "order_items", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "order_id"
+    t.decimal  "unit_price",  precision: 12, scale: 3
+    t.integer  "quantity"
+    t.decimal  "total_price", precision: 12, scale: 3
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
+  add_index "order_items", ["product_id"], name: "index_order_items_on_product_id", using: :btree
+
   create_table "order_rows", force: true do |t|
     t.integer "order_id"
     t.integer "product_id"
+  end
+
+  create_table "order_statuses", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "orders", force: true do |t|
@@ -28,7 +47,14 @@ ActiveRecord::Schema.define(version: 20150825102951) do
     t.string   "status"
     t.integer  "buyer_address_id"
     t.datetime "created_at"
+    t.decimal  "subtotal",         precision: 10, scale: 0
+    t.decimal  "tax",              precision: 10, scale: 0
+    t.decimal  "shipping",         precision: 10, scale: 0
+    t.decimal  "total",            precision: 10, scale: 0
+    t.integer  "order_status_id"
   end
+
+  add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
 
   create_table "products", force: true do |t|
     t.string   "label"
@@ -64,7 +90,7 @@ ActiveRecord::Schema.define(version: 20150825102951) do
     t.string   "password_digest",                                 null: false
     t.string   "role"
     t.string   "username",                                        null: false
-    t.datetime "created_at",      default: '2015-08-25 09:53:14'
+    t.datetime "created_at",      default: '2015-08-25 16:03:27'
     t.integer  "newsletter",      default: 1
     t.string   "salt"
   end

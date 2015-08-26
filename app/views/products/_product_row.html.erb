@@ -1,0 +1,27 @@
+
+
+ <li>
+   <a href="/products/show/<%= product.id %>"> <%= image_tag product.image , :class=>"img-responsive" %></a>
+    <div class="special-info grid_1 simpleCart_shelfItem">
+                     <h5><%= product.label%></h5>
+        <div class="item_add">
+                    <%= form_for order_item, remote: true do |f| %>
+               <div class="item_add">
+                 <span class="item_price">
+                     <h6><%=  product.price %></h6>
+                 </span>
+               </div>
+
+                <div class="input-group-btn">
+                  <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+               </div>
+                        <%= f.hidden_field :product_id, value: product.id %>
+                
+                    
+                     <div class="input-group-btn">
+                        <%= f.submit "Add to Cart", class: "btn btn-success" %>
+                     </div>
+                </div>
+              <% end %>
+    </div>
+   

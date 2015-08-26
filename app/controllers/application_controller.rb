@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery :with => :exception
 
   helper_method :current_user 
-  
+  helper_method :current_order
 
 
 def current_user 
@@ -28,6 +28,13 @@ def require_admin
 	end 
 end
 
+ def current_order
+    if !session[:order_id].nil?
+      Order.find(session[:order_id])
+    else
+      Order.new
+    end
+  end
 
  def get_categories
       @categories = Category.all

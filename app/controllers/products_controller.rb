@@ -1,9 +1,11 @@
 class ProductsController < ApplicationController
 	before_action :require_admin, :only => [:edit, :new , :create , :update]
-
+    before_action :require_user
 
 def index 
 	@categories = Category.all
+	 @products = Product.all
+    @order_item = current_order.order_items.new
 end
 	def create
      
