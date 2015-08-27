@@ -18,10 +18,10 @@ Rails.application.routes.draw do
    get '/products'  => 'products#index' 
    resources :products
    
-   get '/admin/categories'  => 'admin/categories#index' 
-   resources :categories
+   get 'products/show/:id' => 'products#show' 
+   
 
-
+  get '/admin' => 'admin/users#new'
    get '/signup'  => 'users#new' 
    resources :users
   
@@ -30,7 +30,9 @@ Rails.application.routes.draw do
 
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-
+  
+   get '/admin/categories'  => 'admin/categories#index' 
+   resources :categories
    get '/admin' => 'admin/products#index'
    get '/admin/products' => 'admin/products#index'
    get '/admin/products/new' => 'admin/products#new'
@@ -52,6 +54,10 @@ Rails.application.routes.draw do
    delete 'admin/sales/destroy/:id' => 'admin/sales#destroy'
    get 'admin/sales/show/:id' => 'admin/sales#show'
    get '/sales/show/:id' => 'sales#show'
+  
+   get '/admin/users'  => 'admin/users#index'
+   get 'admin/users/show/:id' => 'admin/users#show'
+   resources :users
 
     resource :cart, only: [:show]
     resources :order_items, only: [:create, :update, :destroy]

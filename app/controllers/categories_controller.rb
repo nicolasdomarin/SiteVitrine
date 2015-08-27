@@ -11,7 +11,7 @@ def show
  get_categories
  @category = Category.find(params[:id])
  @products =  @category.products
- @sales = Sale.distinct.joins(:products).where("products.sale_id = sales.id AND products.category_id = ? AND ? BETWEEN start_datetime AND end_datetime", @category,Time.now)
+ @sales = Sale.distinct.joins(:products).where("products.sale_id = sales.id AND products.stock > 0 AND products.category_id = ? AND ? BETWEEN start_datetime AND end_datetime", @category,Time.now)
 
 end
 

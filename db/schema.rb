@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150826174239) do
+ActiveRecord::Schema.define(version: 20150827092845) do
 
   create_table "categories", force: true do |t|
     t.string "label"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20150826174239) do
     t.decimal  "shipping",         precision: 10, scale: 0
     t.decimal  "total",            precision: 10, scale: 0
     t.integer  "order_status_id"
+    t.integer  "user_id",                                   null: false
   end
 
   add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
@@ -90,7 +91,7 @@ ActiveRecord::Schema.define(version: 20150826174239) do
     t.string   "password_digest",                                 null: false
     t.string   "role"
     t.string   "username",                                        null: false
-    t.datetime "created_at",      default: '2015-08-25 16:03:27'
+    t.datetime "created_at",      default: '2015-08-25 09:53:14'
     t.integer  "newsletter",      default: 1
     t.string   "salt"
   end

@@ -1,6 +1,52 @@
-<div class="product-show">
-  <div class="container">
-    <h2><%= @product.label %></h2>
 
-  </div>
-</div>
+<!-- content -->
+<div class="container">
+<div class="women_main">
+			<div class="row single">
+				<div class="col-md-12 det">
+				  <div style="">
+				  <div style="">
+				  	<div style="float:left;">
+				  	<%= image_tag @product.image , :class=> 'img-responsive' %>
+				  </div>
+
+				  </div>
+				  <div class="desc1 span_3_of_2">
+					<ul >
+						
+								
+				    </ul>
+					<h3><%= @product.label %></h3>
+					  <div class="item_add">
+                    <%= form_for @order_item, remote: true do |f| %>
+               <div class="item_add">
+                 <span class="item_price">
+                     <h6><%=  number_to_currency @product.price %></h6>
+                 </span>
+               </div>
+
+                <div class="input-group-btn">
+                  <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+               </div>
+                        <%= f.hidden_field :product_id, value: @product.id %>
+                
+                    
+                     <div class="input-group-btn">
+                        <%= f.submit "Add to Cart", class: "btn btn-success" %>
+                     </div>
+                </div>
+              <% end %>			
+			   	 </div>
+          	    <div class="clearfix"></div>
+          	   </div>
+          	    <div class="single-bottom1">
+					<h6>Details</h6>
+					<p class="prod-desc">
+						<% if @product.description %> 
+							<%= @product.description%> 
+						<%else %> 
+							Aucune description
+						<% end %>
+					</p>
+				</div>
+				

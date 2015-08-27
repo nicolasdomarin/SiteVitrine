@@ -1,6 +1,19 @@
 <div class="login">
   <div class="container">
     <div class="form_signup">
+
+<%# raise "#{@product.errors.full_messages}" %>
+    	<% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
       <h1>New Product</h1>
           <%= render :partial => 'form' %>
             <%= link_to 'Back', admin_products_path %> |
