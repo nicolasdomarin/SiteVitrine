@@ -3,61 +3,29 @@
     <h3>Les Ventes De La Categorie <%= @category.label %></h3>
     <div class="specia-top">
       <ul class="grid_2">
+		<% if @sales.size < 1 %> 
+			<div style="text-align:center">
+				Aucune vente n'est disponible pour cette catégorie 
+			</div>
+		<% else %>
 
         <% @sales.each do |p| %>
             <li>
               <a href="/sales/show/<%= p.id %>">   <%= image_tag '1.jpg', :class=>"img-responsive" %></a>
               <div class="special-info grid_1 simpleCart_shelfItem">
-                <h5><%= p.label %></h5>
+                <h4 style="text-align:center"><%= p.label %></h4>
 
                 <div class="item_add"><span class="item_price">
                   <h6></h6></span></div>
-                <div class="show_vente"><span class="item_price"><a href="/sales/show/<%=p.id%>">Voir Vente</a></span></div>
+                <div class="show_vente">
+               <span class="item_price" > 
+               <b><%= p.start_datetime.strftime("%d/%m/%y %H:%M") %> - <%= p.end_datetime.strftime("%d/%m/%y %H:%M") %></b></span><br><br>
+                <span class="item_price"><a href="/sales/show/<%=p.id%>">Voir Vente</a></span></div>
               </div>
             </li>
-  		<% end %>
+  		<% end %><% end %>
         <div class="clearfix"> </div>
       </ul>
     </div>
-  </div>
-</div>
-<div class="foot-top">
-  <div class="container">
-    <div class="col-md-6 s-c">
-      <li>
-        <div class="fooll">
-          <h5>follow us on</h5>
-        </div>
-      </li>
-      <li>
-        <div class="social-ic">
-          <ul>
-            <li><a href="#"><i class="facebok"> </i></a></li>
-            <li><a href="#"><i class="twiter"> </i></a></li>
-            <li><a href="#"><i class="goog"> </i></a></li>
-            <li><a href="#"><i class="be"> </i></a></li>
-            <li><a href="#"><i class="pp"> </i></a></li>
-            <div class="clearfix"></div>
-          </ul>
-        </div>
-      </li>
-      <div class="clearfix"> </div>
-    </div>
-    <div class="col-md-6 s-c">
-      <div class="stay">
-        <div class="stay-left">
-          <form>
-            <input type="text" placeholder="Enter your email to join our newsletter" required="">
-          </form>
-        </div>
-        <div class="btn-1">
-          <form>
-            <input type="submit" value="join">
-          </form>
-        </div>
-        <div class="clearfix"> </div>
-      </div>
-    </div>
-    <div class="clearfix"> </div>
   </div>
 </div>

@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
+ 
+
+  resources :newsletters
+
   get 'order_items/create'
-
   get 'order_items/update'
-
   get 'order_items/destroy'
-
   get 'carts/show'
+  get 'cart/payment' => "carts#payment"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
