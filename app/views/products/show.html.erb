@@ -24,23 +24,25 @@
                      <h4 style="text-align:left"><%=  number_to_currency @product.price %></h4>
                  </span>
                </div>
+				<% if @product.sale.end_datetime > Time.now %>
+				                <div class="input-group-btn">
+				                  <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+				               </div>
+				                        <%= f.hidden_field :product_id, value: @product.id %>
+				                
+				                    
+				                     <div class="input-group-btn">
+				                        <%= f.submit "Ajouter au Panier", class: "btn btn-success" %>
+				                     </div>
+				<% end %>
 
-                <div class="input-group-btn">
-                  <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
-               </div>
-                        <%= f.hidden_field :product_id, value: @product.id %>
-                
-                    
-                     <div class="input-group-btn">
-                        <%= f.submit "Add to Cart", class: "btn btn-success" %>
-                     </div>
                 </div>
               <% end %>			
 			   	 </div>
           	    <div class="clearfix"></div>
           	   </div>
           	    <div class="single-bottom1">
-					<h6>Details</h6>
+					<h6>Description</h6>
 					<p class="prod-desc">
 						<% if @product.description %> 
 							<%= @product.description%> 
